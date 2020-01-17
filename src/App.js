@@ -1,27 +1,37 @@
 import React, {useEffect, Fragment} from 'react';
 import './App.scss';
 
+import AddLogModal from './components/logs/AddLogModal';
+import EditLogModal from './components/logs/EditLogModal';
+import AddTechModal from './components/techs/AddTechModal';
+import TechListModal from './components/techs/TechListModal';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import SearchBar from "./components/layout/SearchBar";
 import Logs from "./components/logs/Logs";
+import AddBtn from './components/layout/AddBtn';
 
 const App = () => {
-  useEffect(() => {
-    // Init Materialize JS
-    M.AutoInit();
-  });
+    useEffect(() => {
+        // Init Materialize JS
+        M.AutoInit();
+    });
 
-  return (
-    <Fragment>
-      <SearchBar/>
-      <div className="container">
-        <Logs/>
-      </div>
-    </Fragment>
-  );
+    return (
+        <Fragment>
+            <SearchBar/>
+            <div className="container">
+                <AddBtn />
+                <AddLogModal />
+                <EditLogModal />
+                <AddTechModal />
+                <TechListModal />
+                <Logs/>
+            </div>
+        </Fragment>
+    );
 };
 
 export default App;

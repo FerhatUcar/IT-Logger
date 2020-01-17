@@ -41,8 +41,8 @@ const Logs = () => {
 };
 
 Logs.propTypes = {
-    log: PropTypes.object.isRequired,
-    getLogs: PropTypes.func.isRequired
+    // log: PropTypes.object.isRequired,
+    // getLogs: PropTypes.func.isRequired
 };
 
 export default Logs;
