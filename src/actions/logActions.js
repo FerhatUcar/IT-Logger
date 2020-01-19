@@ -12,23 +12,15 @@ import {
 
 
 export const getLogs = () => async dispatch => {
-    try {
-        setLoading();
+    setLoading();
 
-        const res = await fetch('/logs');
-        const data = res.json();
+    const res = await fetch('/logs');
+    const data = await res.json();
 
-        // dispatch to the reducer
-        dispatch({
-            type: GET_LOGS,
-            payload: data
-        })
-    } catch (err) {
-        dispatch({
-            type: LOGS_ERROR,
-            payload: err.response.data
-        })
-    }
+    dispatch({
+      type: GET_LOGS,
+      payload: data
+    });
 };
 
 // Add new log
