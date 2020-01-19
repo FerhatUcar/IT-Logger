@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import LogItem from './LogItem';
 import Preloader from '../layout/Preloader';
@@ -8,9 +8,7 @@ import {getLogs} from "../../actions/logActions";
 // destructor log from initial state, get logs and loading
 const Logs = ({ log: { logs, loading }, getLogs }) => {
     useEffect(() => {
-        getLogs()
-            .then(res => console.log(res))
-            .catch(err => console.error(err));
+        getLogs();
         // eslint-disable-next-line
     }, []);
 

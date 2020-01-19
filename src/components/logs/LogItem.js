@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import Preloader from "../layout/Preloader";
 import {connect} from 'react-redux';
-import {deleteLog} from "../../actions/logActions";
+import {deleteLog, setCurrent} from "../../actions/logActions";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
@@ -51,5 +50,5 @@ LogItem.propTypes = {
 
 export default connect(
     null,
-    {deleteLog}
+    {deleteLog, setCurrent}
 )(LogItem);
