@@ -22,15 +22,15 @@ const EditLogModal = ({ current, updateLog }) => {
         if (message === '' || tech === '') {
             M.toast({ html: 'Please enter a message and tech' });
         } else {
-            const updLog = {
+
+            updateLog({
                 id: current.id,
                 message,
                 attention,
                 tech,
                 date: new Date()
-            };
+            });
 
-            updateLog(updLog);
             M.toast({ html: `Log updated by ${tech}` });
 
             // Clear Fields
@@ -107,12 +107,15 @@ const modalStyle = {
 };
 
 EditLogModal.propTypes = {
-    // current: PropTypes.object,
-    //     // updateLog: PropTypes.func.isRequired
+    current: PropTypes.object,
+    updateLog: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
     current: state.log.current
 });
 
-export default EditLogModal;
+export default connect(
+    mapStateToProps,
+    {updateLog}
+)(EditLogModal);
